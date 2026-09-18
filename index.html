@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Hydra — The Ultra-Fast, Graph-First Native Git Client</title>
+  <meta name="description" content="Domine a complexidade do Git. Cliente nativo em Rust acelerado por GPU (Iced), visualização topológica de grafos em tempo real, diffs avançados de mídia e zero bloat.">
+  <meta property="og:title" content="Git Hydra — The Ultra-Fast Native Git Client">
+  <meta property="og:description" content="Graph-First, 100% Rust + GPU, zero Electron. Baixe para Linux, macOS e Windows.">
+  <meta property="og:image" content="assets/screenshot_1.png">
+  <meta name="theme-color" content="#06090e">
+  <link rel="icon" type="image/png" href="assets/git-hydra.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow glow-emerald"></div>
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-purple"></div>
+  <div class="bg-grid"></div>
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="assets/git-hydra.png" alt="Git Hydra Logo" class="brand-logo">
+        <span class="brand-name">Git Hydra</span>
+        <span class="brand-tag">v1.0.0</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features">Recursos</a>
+        <a href="#topology">Grafo Interativo</a>
+        <a href="#architecture">Arquitetura</a>
+        <a href="#downloads">Downloads</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://github.com/MarceloFullStack/git-hydra-app" target="_blank" rel="noopener" class="btn-github">
+          <svg class="icon-gh" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>Star no GitHub</span>
+        </a>
+        <a href="#downloads" class="btn-primary">Baixar Agora</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">Git Hydra v1.0.0 — Official Initial Release Disponível</span>
+      </div>
+      
+      <h1 class="hero-title">
+        The Beast of Version Control.
+        <span class="gradient-text">Graph-First. 100% Rust.</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Projetado para engenheiros que não toleram wrappers lentos em Electron. 
+        Enxergue a verdadeira topologia das suas ramificações, faça rebases com segurança e navegue milhões de commits a <strong>120 FPS acelerado por GPU</strong>.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#downloads" class="btn-hero-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Download v1.0.0 Grátis</span>
+        </a>
+        <a href="#topology" class="btn-hero-secondary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/>
+          </svg>
+          <span>Ver Simulação do Grafo</span>
+        </a>
+      </div>
+
+      <!-- Quick Install Bar -->
+      <div class="install-bar">
+        <span class="install-prompt">$</span>
+        <code id="install-cmd">curl -sSL https://raw.githubusercontent.com/MarceloFullStack/git-hydra-app/main/install.sh | bash</code>
+        <button id="copy-btn" class="btn-copy" title="Copiar comando">
+          <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="copy-feedback">Copiar</span>
+        </button>
+      </div>
+
+      <!-- App Preview Frame with Glow -->
+      <div class="preview-wrapper">
+        <div class="preview-glow"></div>
+        <div class="window-frame">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-title">Git Hydra — Workspace: MarceloFullStack/git-hydra (main)</div>
+            <div class="window-status">100% Native Iced + WGPU</div>
+          </div>
+          <div class="window-body">
+            <img src="assets/screenshot_1.png" alt="Git Hydra Interface Preview" class="preview-img" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive DAG Topology Demo -->
+  <section id="topology" class="section topology-section">
+    <div class="section-header">
+      <div class="section-tag">FILOSOFIA GRAPH-FIRST</div>
+      <h2 class="section-title">O formato do seu código, não apenas um log plano.</h2>
+      <p class="section-desc">
+        A maioria dos clientes esconde ramificações em listas sem contexto. No Git Hydra, a árvore topológica é viva, direta e interativa. Clique nos nós abaixo para testar a inspeção em tempo real:
+      </p>
+    </div>
+
+    <div class="topology-demo-container">
+      <div class="dag-viewer" id="dag-viewer">
+        <div class="dag-header">
+          <span class="dag-branch-pill main-branch">main</span>
+          <span class="dag-branch-pill feat-branch">feat/workflow-guide</span>
+          <span class="dag-branch-pill fix-branch">fix/macos-bundle</span>
+        </div>
+        <div class="dag-canvas-area" id="dag-canvas-area">
+          <!-- Commit Nodes generated dynamically -->
+        </div>
+      </div>
+
+      <div class="dag-inspector" id="dag-inspector">
+        <div class="inspector-header">
+          <div class="inspector-badge" id="insp-type">MERGE COMMIT</div>
+          <div class="inspector-sha" id="insp-sha">5da5f89</div>
+        </div>
+        <h3 class="inspector-title" id="insp-title">Merge branch 'feat/workflow-guide-and-branding'</h3>
+        <div class="inspector-meta">
+          <span><strong>Autor:</strong> Marcelo Guimarães</span>
+          <span><strong>Data:</strong> Wed Mar 11, 22:15:00</span>
+        </div>
+        <div class="inspector-diff-preview">
+          <div class="diff-file">Cargo.toml</div>
+          <div class="diff-lines">
+            <span class="diff-add">+ [package.metadata.bundle]</span>
+            <span class="diff-add">+ name = "Git Hydra"</span>
+            <span class="diff-add">+ icon = ["packaging/icons/git-hydra.icns", ...]</span>
+            <span class="diff-del">- icon = ["packaging/icons/git-hydra.png"]</span>
+          </div>
+        </div>
+        <div class="inspector-stats">
+          <span class="stat-badge stat-add">+14 additions</span>
+          <span class="stat-badge stat-del">-2 deletions</span>
+          <span class="stat-badge stat-files">3 files changed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Superpowers Grid -->
+  <section id="features" class="section features-section">
+    <div class="section-header">
+      <div class="section-tag">SUPERPODERES DA HYDRA</div>
+      <h2 class="section-title">Engenharia pesada por baixo. Fluidez pura na tela.</h2>
+      <p class="section-desc">Cada linha de código foi pensada para eliminar o gargalo entre sua mente e o repositório.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon emerald">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="feature-title">100% Rust + Aceleração GPU</h3>
+        <p class="feature-text">Construído em Iced com backend WGPU nativo. Sem Chromium, sem Electron, sem consumir 2 GB de RAM à toa. Inicialização em menos de 10ms.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
+        </div>
+        <h3 class="feature-title">Topologia de Grafos Clara</h3>
+        <p class="feature-text">Visualize branches concorrentes, merges polifásicos, stashes e tags como uma estrutura visual lógica, permitindo entender repositórios gigantes em segundos.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="feature-title">Tree-Sitter Syntax Diffs</h3>
+        <p class="feature-text">Diffs de código inteligentes com parsing sintático real via Tree-Sitter. Colorização semântica de alta fidelidade para dezenas de linguagens.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon emerald">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3 class="feature-title">Diff Avançado de Mídias</h3>
+        <p class="feature-text">Comparações visuais de imagem lado a lado, efeito onion-skin e mapa de calor de pixels. Formas de onda de áudio e streaming de vídeo via FFmpeg integrado.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3 class="feature-title">Extensibilidade com Lua</h3>
+        <p class="feature-text">Runtime LuaJIT embutido para criar comandos personalizados, atalhos de teclado, painéis acopláveis e decorações de nós sem precisar recompilar o app.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3 class="feature-title">Privacidade Absoluta</h3>
+        <p class="feature-text">100% offline. Sem logins forçados, sem rastreadores e sem telemetria em segundo plano. Seu código-fonte permanece estritamente na sua máquina.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Blueprint -->
+  <section id="architecture" class="section architecture-section">
+    <div class="section-header">
+      <div class="section-tag">PILHA TECNOLÓGICA</div>
+      <h2 class="section-title">Arquitetura de Alta Performance</h2>
+    </div>
+
+    <div class="arch-table-wrapper">
+      <table class="arch-table">
+        <thead>
+          <tr>
+            <th>Camada</th>
+            <th>Motor / Biblioteca</th>
+            <th>Propósito Arquitetural</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Interface Gráfica</strong></td>
+            <td><span class="tech-pill">Iced 0.14 (WGPU)</span></td>
+            <td>Renderização direta na placa de vídeo com taxa de atualização fluida e consumo mínimo de RAM.</td>
+          </tr>
+          <tr>
+            <td><strong>Motor Git</strong></td>
+            <td><span class="tech-pill">git2 (libgit2 vendored)</span></td>
+            <td>Acesso ultrarrápido às estruturas do repositório em C/Rust sem spawning de subprocessos desnecessários.</td>
+          </tr>
+          <tr>
+            <td><strong>Concorrência</strong></td>
+            <td><span class="tech-pill">Tokio 1.0 Runtime</span></td>
+            <td>Execução multithread assíncrona não-bloqueante para tarefas de rede, leitura de disco e hashing.</td>
+          </tr>
+          <tr>
+            <td><strong>Cache Local</strong></td>
+            <td><span class="tech-pill">Rusqlite (Bundled SQLite)</span></td>
+            <td>Indexação de diffs e histórico de branch cacheado para recuperação instantânea em milissegundos.</td>
+          </tr>
+          <tr>
+            <td><strong>Colorização</strong></td>
+            <td><span class="tech-pill">Tree-Sitter 0.26</span></td>
+            <td>Gramática orientada a árvore sintática (AST) para realce de código de alta precisão.</td>
+          </tr>
+          <tr>
+            <td><strong>Plugins</strong></td>
+            <td><span class="tech-pill">MLua 0.10 (LuaJIT)</span></td>
+            <td>Scripting dinâmico seguro em Lua de alta velocidade.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Downloads Matrix Section -->
+  <section id="downloads" class="section downloads-section">
+    <div class="section-header">
+      <div class="section-tag">DOWNLOAD OFICIAL</div>
+      <h2 class="section-title">Instale o Git Hydra v1.0.0</h2>
+      <p class="section-desc">Pacotes binários nativos compilados com otimizações extremas via CI oficial.</p>
+    </div>
+
+    <div class="download-tabs">
+      <button class="dtab-btn active" data-tab="linux">🐧 Linux</button>
+      <button class="dtab-btn" data-tab="macos">🍏 macOS</button>
+      <button class="dtab-btn" data-tab="windows">🪟 Windows</button>
+      <button class="dtab-btn" data-tab="cargo">🦀 Cargo / Source</button>
+    </div>
+
+    <div class="download-panels">
+      <!-- Linux Panel -->
+      <div class="dpanel active" id="tab-linux">
+        <div class="download-cards-grid">
+          <div class="pkg-card featured">
+            <div class="pkg-badge">Debian / Ubuntu</div>
+            <h4>Pacote .deb (x86_64)</h4>
+            <p>Compatível com Ubuntu 22.04+, Debian 12+, Mint e derivados.</p>
+            <div class="pkg-cmd">sudo dpkg -i git-hydra_1.0.0-1_amd64.deb</div>
+            <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra_1.0.0-1_amd64.deb" class="btn-download">Baixar .deb (amd64)</a>
+          </div>
+
+          <div class="pkg-card">
+            <div class="pkg-badge">Fedora / RHEL</div>
+            <h4>Pacote .rpm (x86_64)</h4>
+            <p>Compatível com Fedora 39+, RHEL 9+, CentOS e openSUSE.</p>
+            <div class="pkg-cmd">sudo dnf install ./git-hydra-1.0.0-1.x86_64.rpm</div>
+            <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-1.x86_64.rpm" class="btn-download">Baixar .rpm (x86_64)</a>
+          </div>
+
+          <div class="pkg-card">
+            <div class="pkg-badge">Arch / Universal</div>
+            <h4>Portable .tar.gz (x86_64)</h4>
+            <p>Executável portátil com desktop file e ícones incluídos.</p>
+            <div class="pkg-cmd">tar -xzf git-hydra-1.0.0-linux-amd64.tar.gz</div>
+            <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-linux-amd64.tar.gz" class="btn-download">Baixar .tar.gz</a>
+          </div>
+
+          <div class="pkg-card">
+            <div class="pkg-badge">Linux ARM64</div>
+            <h4>Pacotes ARM64 (deb / rpm / tar)</h4>
+            <p>Raspberry Pi 4/5, servidores e laptops com processador ARM64.</p>
+            <div class="pkg-multi-actions">
+              <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra_1.0.0-1_arm64.deb" class="btn-sub-dl">ARM64 .deb</a>
+              <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-1.aarch64.rpm" class="btn-sub-dl">ARM64 .rpm</a>
+              <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-linux-arm64.tar.gz" class="btn-sub-dl">ARM64 .tar.gz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- macOS Panel -->
+      <div class="dpanel" id="tab-macos">
+        <div class="download-cards-grid single-focus">
+          <div class="pkg-card featured">
+            <div class="pkg-badge">Apple Silicon (M1/M2/M3/M4)</div>
+            <h4>Native macOS Bundle (.app)</h4>
+            <p>Pacote otimizado com aceleração Metal nativa e ícones de alta densidade retina.</p>
+            <div class="pkg-cmd">
+              tar -xzf git-hydra-1.0.0-aarch64-apple-darwin.tar.gz<br>
+              mv "Git Hydra.app" /Applications/
+            </div>
+            <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-aarch64-apple-darwin.tar.gz" class="btn-download">Baixar macOS Bundle (.tar.gz)</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Windows Panel -->
+      <div class="dpanel" id="tab-windows">
+        <div class="download-cards-grid single-focus">
+          <div class="pkg-card featured">
+            <div class="pkg-badge">Windows 10 / 11 (64-bit)</div>
+            <h4>Standalone Portable .zip</h4>
+            <p>Executável nativo com aceleração DirectX 12 / Vulkan via WGPU. Não requer instalador nem privilégios de administrador.</p>
+            <div class="pkg-cmd">Descompacte o arquivo zip e execute git_hydra.exe</div>
+            <a href="https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-x86_64-pc-windows-msvc.zip" class="btn-download">Baixar Windows .zip</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cargo Panel -->
+      <div class="dpanel" id="tab-cargo">
+        <div class="download-cards-grid single-focus">
+          <div class="pkg-card">
+            <div class="pkg-badge">Rust Toolchain</div>
+            <h4>Compilar via Cargo</h4>
+            <p>Instale direto do repositório oficial com otimizações completas da sua CPU:</p>
+            <div class="pkg-cmd">cargo install --git https://github.com/MarceloFullStack/git-hydra.git</div>
+            <a href="https://github.com/MarceloFullStack/git-hydra-app" target="_blank" rel="noopener" class="btn-download">Ver Repositório no GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Author Spotlight -->
+  <section class="section author-section">
+    <div class="author-card">
+      <div class="author-avatar-wrapper">
+        <img src="assets/git-hydra.png" alt="Marcelo Guimarães" class="author-avatar">
+      </div>
+      <div class="author-info">
+        <div class="author-label">CRIADOR & ENGENHEIRO CHEFE</div>
+        <h3 class="author-name">Marcelo (Programador) Guimarães</h3>
+        <p class="author-bio">
+          Sênior Full Stack. Raízes sólidas na engenharia de software, escalando resultados com inteligência artificial e computação de alta performance em Rust. Experiência acima de ferramentas.
+        </p>
+        <div class="author-tags">
+          <span class="tag">ADS</span>
+          <span class="tag">Gestão Comercial</span>
+          <span class="tag">Pós IA / ML</span>
+          <span class="tag">Rust & WGPU</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/git-hydra.png" alt="Logo" class="footer-logo">
+        <span>Git Hydra</span>
+      </div>
+      <p class="footer-copyright">
+        © 2026 Marcelo Guimarães. Distribuído sob licença <a href="https://github.com/MarceloFullStack/git-hydra/blob/main/LICENSE" target="_blank" rel="noopener">MIT</a>.
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/MarceloFullStack/git-hydra-app" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/MarceloFullStack/git-hydra-app/releases" target="_blank" rel="noopener">Releases</a>
+        <a href="https://github.com/MarceloFullStack/git-hydra-app/issues" target="_blank" rel="noopener">Issues</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
