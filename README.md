@@ -12,23 +12,19 @@
   <a href="https://marcelofullstack.github.io/git-hydra-app/"><img src="https://img.shields.io/badge/Official%20Website-Live-brightgreen" alt="Official Website"></a>
   <a href="https://github.com/MarceloFullStack/git-hydra-app/releases"><img src="https://img.shields.io/badge/Edition-Community%20(v1.0.0)-blue" alt="Edition"></a>
   <a href="#"><img src="https://img.shields.io/badge/License-Free%20Community-emerald" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Pro%20Edition-In%20Development-purple" alt="Pro Edition"></a>
 </p>
 
 ---
 
-## ⚡ Git Hydra Community Edition (Gratuita para Sempre)
+## ⚡ Git Hydra Community Edition
 
-A **Community Edition (v1.0.0)** é a versão completa e gratuita distribuída para a comunidade de desenvolvedores. Ela reúne todos os recursos fundamentais de alta performance:
+A **Community Edition (v1.0.0)** é um projeto gratuito distribuído para desenvolvedores. Ela reúne todos os recursos fundamentais de alta performance:
 
 * 🚀 **100% Rust Nativo + Aceleração GPU (Iced)**: Inicialização instantânea e baixo consumo de RAM.
 * 🌿 **Topologia Graph-First**: Visualização clara de branches, merges e stashes.
 * 🎨 **Syntax Highlighting Real com Tree-Sitter**: Diffs com colorização semântica.
 * 🎬 **Diff de Mídias Avançado**: Imagens lado a lado / onion-skin, áudio e vídeo via FFmpeg.
 * 🛡️ **Zero Telemetria**: 100% offline, seguro e privado.
-
-> 💼 **Git Hydra Pro (Em desenvolvimento paralelo):**  
-> Uma edição comercial avançada com recursos exclusivos de produtividade para equipes, integrações corporativas e ferramentas avançadas de rebase interativo está sendo desenvolvida de forma independente.
 
 ---
 
