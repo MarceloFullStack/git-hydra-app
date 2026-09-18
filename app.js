@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTopologySimulator();
   initDownloadTabs();
   detectUserOS();
+  initMobileMenu();
 });
 
 // --------------------------------------------------------------------------
@@ -269,4 +270,51 @@ function detectUserOS() {
   if (targetBtn) {
     targetBtn.click();
   }
+}
+
+// --------------------------------------------------------------------------
+// 6. Responsive Mobile Navigation Drawer
+// --------------------------------------------------------------------------
+function initMobileMenu() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const siteHeader = document.querySelector('.site-header');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  if (!menuToggle || !siteHeader) return;
+
+  function toggleMenu(forceClose = false) {
+    const isOpen = siteHeader.classList.contains('mobile-nav-open');
+    if (forceClose || isOpen) {
+      siteHeader.classList.remove('mobile-nav-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
+    } else {
+      siteHeader.classList.add('mobile-nav-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('no-scroll');
+    }
+  }
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMenu(true);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!siteHeader.contains(e.target) && siteHeader.classList.contains('mobile-nav-open')) {
+      toggleMenu(true);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && siteHeader.classList.contains('mobile-nav-open')) {
+      toggleMenu(true);
+    }
+  });
 }
