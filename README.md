@@ -11,14 +11,15 @@
 <p align="center">
   <a href="https://marcelofullstack.github.io/git-hydra-app/"><img src="https://img.shields.io/badge/Official%20Website-Live-brightgreen" alt="Official Website"></a>
   <a href="https://github.com/MarceloFullStack/git-hydra-app/releases"><img src="https://img.shields.io/badge/Edition-Community%20(v1.0.0)-blue" alt="Edition"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Community%20Edition-Gratuita%20para%20Sempre-brightgreen" alt="Gratuita para Sempre"></a>
   <a href="#"><img src="https://img.shields.io/badge/License-Free%20Community-emerald" alt="License"></a>
 </p>
 
 ---
 
-## ⚡ Git Hydra Community Edition
+## ⚡ Git Hydra Community Edition (Gratuita para Sempre)
 
-A **Community Edition (v1.0.0)** é um projeto gratuito distribuído para desenvolvedores. Ela reúne todos os recursos fundamentais de alta performance:
+A **Community Edition (v1.0.0)** é a edição gratuita para sempre disponibilizada abertamente para toda a comunidade de desenvolvedores. Ela reúne todos os recursos fundamentais de alta performance:
 
 * 🚀 **100% Rust Nativo + Aceleração GPU (Iced)**: Inicialização instantânea e baixo consumo de RAM.
 * 🌿 **Topologia Graph-First**: Visualização clara de branches, merges e stashes.
