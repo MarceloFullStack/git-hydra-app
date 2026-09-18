@@ -1,4 +1,4 @@
-# 🐉 Git Hydra — Official Public Distribution
+# 🐉 Git Hydra — Community Edition
 
 <p align="center">
   <img src="assets/git-hydra.png" alt="Git Hydra Logo" width="160" />
@@ -10,21 +10,36 @@
 
 <p align="center">
   <a href="https://marcelofullstack.github.io/git-hydra-app/"><img src="https://img.shields.io/badge/Official%20Website-Live-brightgreen" alt="Official Website"></a>
-  <a href="https://github.com/MarceloFullStack/git-hydra-app/releases"><img src="https://img.shields.io/badge/Release-v1.0.0-blue" alt="Release"></a>
-  <a href="#"><img src="https://img.shields.io/badge/License-Proprietary%20%2F%20Freemium-orange" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-blueviolet" alt="Platforms"></a>
+  <a href="https://github.com/MarceloFullStack/git-hydra-app/releases"><img src="https://img.shields.io/badge/Edition-Community%20(v1.0.0)-blue" alt="Edition"></a>
+  <a href="#"><img src="https://img.shields.io/badge/License-Free%20Community-emerald" alt="License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Pro%20Edition-In%20Development-purple" alt="Pro Edition"></a>
 </p>
 
 ---
 
-## 🌐 Official Website
-👉 **[Visit the Git Hydra Landing Page](https://marcelofullstack.github.io/git-hydra-app/)**
+## ⚡ Git Hydra Community Edition (Gratuita para Sempre)
+
+A **Community Edition (v1.0.0)** é a versão completa e gratuita distribuída para a comunidade de desenvolvedores. Ela reúne todos os recursos fundamentais de alta performance:
+
+* 🚀 **100% Rust Nativo + Aceleração GPU (Iced)**: Inicialização instantânea e baixo consumo de RAM.
+* 🌿 **Topologia Graph-First**: Visualização clara de branches, merges e stashes.
+* 🎨 **Syntax Highlighting Real com Tree-Sitter**: Diffs com colorização semântica.
+* 🎬 **Diff de Mídias Avançado**: Imagens lado a lado / onion-skin, áudio e vídeo via FFmpeg.
+* 🛡️ **Zero Telemetria**: 100% offline, seguro e privado.
+
+> 💼 **Git Hydra Pro (Em desenvolvimento paralelo):**  
+> Uma edição comercial avançada com recursos exclusivos de produtividade para equipes, integrações corporativas e ferramentas avançadas de rebase interativo está sendo desenvolvida de forma independente.
 
 ---
 
-## ⚡ Quick Install (Linux)
+## 🌐 Site Oficial & Demonstração Interativa
+👉 **[Acesse a Landing Page Oficial do Git Hydra](https://marcelofullstack.github.io/git-hydra-app/)**
 
-To install the latest official release into `~/.local`:
+---
+
+## ⚡ Instalação Rápida no Linux (1 Linha)
+
+Para instalar a versão oficial estável diretamente em `~/.local/bin`:
 
 ```bash
 curl -sSL https://raw.githubusercontent.com/MarceloFullStack/git-hydra-app/main/install.sh | bash
@@ -32,27 +47,27 @@ curl -sSL https://raw.githubusercontent.com/MarceloFullStack/git-hydra-app/main/
 
 ---
 
-## 📦 Downloads (v1.0.0)
+## 📦 Downloads Oficiais (v1.0.0 Community)
 
-All official pre-built binaries are available on the [Releases Page](https://github.com/MarceloFullStack/git-hydra-app/releases):
+Pacotes binários nativos disponíveis na [Página de Releases](https://github.com/MarceloFullStack/git-hydra-app/releases):
 
-| Platform | Architecture | Format | Download Link |
+| Plataforma | Arquitetura | Pacote | Link Direto |
 |:---|:---|:---|:---|
 | **Ubuntu / Debian** | x86_64 | `.deb` | [git-hydra_1.0.0-1_amd64.deb](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra_1.0.0-1_amd64.deb) |
 | **Ubuntu / Debian** | ARM64 | `.deb` | [git-hydra_1.0.0-1_arm64.deb](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra_1.0.0-1_arm64.deb) |
 | **Fedora / RHEL** | x86_64 | `.rpm` | [git-hydra-1.0.0-1.x86_64.rpm](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-1.x86_64.rpm) |
 | **Fedora / RHEL** | ARM64 | `.rpm` | [git-hydra-1.0.0-1.aarch64.rpm](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-1.aarch64.rpm) |
-| **Linux Universal** | x86_64 | `.tar.gz` | [git-hydra-1.0.0-linux-amd64.tar.gz](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-linux-amd64.tar.gz) |
-| **Linux Universal** | ARM64 | `.tar.gz` | [git-hydra-1.0.0-linux-arm64.tar.gz](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-linux-arm64.tar.gz) |
+| **Linux Universal** | x86_64 | Portable `.tar.gz` | [git-hydra-1.0.0-linux-amd64.tar.gz](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-linux-amd64.tar.gz) |
+| **Linux Universal** | ARM64 | Portable `.tar.gz` | [git-hydra-1.0.0-linux-arm64.tar.gz](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-linux-arm64.tar.gz) |
 | **macOS (Apple Silicon)** | arm64 | `.app` Bundle | [git-hydra-1.0.0-aarch64-apple-darwin.tar.gz](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-aarch64-apple-darwin.tar.gz) |
 | **Windows (64-bit)** | x86_64 | Portable `.zip` | [git-hydra-1.0.0-x86_64-pc-windows-msvc.zip](https://github.com/MarceloFullStack/git-hydra-app/releases/download/v1.0.0/git-hydra-1.0.0-x86_64-pc-windows-msvc.zip) |
 
 ---
 
-## 👤 Author
+## 👤 Autor
 
 **Marcelo (Programador) Guimarães**  
-*Senior Full Stack Engineer.*  
-Education: ADS, Commercial Management, Postgraduate in AI/ML.
+*Autor e Criador do Projeto Git Hydra.*  
+Sênior Full Stack. ADS, Gestão Comercial e Pós em Inteligência Artificial / Machine Learning.
 
-© 2026 Marcelo Guimarães. All rights reserved.
+© 2026 Marcelo Guimarães. Git Hydra Community Edition.
