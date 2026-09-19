@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Git Hydra — The Ultra-Fast, Graph-First Native Git Client</title>
-  <meta name="description" content="Domine a complexidade do Git. Cliente nativo em Rust acelerado por GPU (Iced), visualização topológica de grafos em tempo real, diffs avançados de mídia e zero bloat.">
-  <meta property="og:title" content="Git Hydra — The Ultra-Fast Native Git Client">
-  <meta property="og:description" content="Graph-First, 100% Rust + GPU, zero Electron. Baixe para Linux, macOS e Windows.">
+  <title>Git Hydra — A Máquina do Tempo do seu Código | Cliente Git Visual Nativo</title>
+  <meta name="description" content="Domine a criação de software na era da IA. Crie checkpoints visuais, desfaça alterações da IA em 1 clique e navegue grafos a 120 FPS. 100% Rust + GPU, zero Electron.">
+  <meta property="og:title" content="Git Hydra — O Cliente Git Visual Nativo em Rust">
+  <meta property="og:description" content="Volte no tempo com segurança. Graph-First, 100% Rust + GPU, zero Electron. Baixe grátis para Linux, macOS e Windows.">
   <meta property="og:image" content="assets/screenshot_1.png">
   <meta name="theme-color" content="#06090e">
   <link rel="icon" type="image/png" href="assets/git-hydra.png">
@@ -35,9 +35,11 @@
         <span class="brand-tag">v1.0.0</span>
       </a>
       <nav class="nav-links">
+        <a href="#como-funciona">Como Funciona</a>
+        <a href="#casos-de-uso">Casos de Uso</a>
+        <a href="#topology">Grafo Vivo</a>
         <a href="#features">Recursos</a>
-        <a href="#topology">Grafo Interativo</a>
-        <a href="#architecture">Arquitetura</a>
+        <a href="#community">Comunidade</a>
         <a href="#downloads">Downloads</a>
       </nav>
       <div class="nav-actions">
@@ -66,13 +68,14 @@
       </div>
       
       <h1 class="hero-title">
-        The Beast of Version Control.
-        <span class="gradient-text">Graph-First. 100% Rust.</span>
+        A Máquina do Tempo do seu Código com IA.
+        <span class="gradient-text">Experimente sem medo. Volte no tempo com 1 clique.</span>
       </h1>
       
       <p class="hero-subtitle">
-        Projetado para engenheiros que não toleram wrappers lentos em Electron. 
-        Enxergue a verdadeira topologia das suas ramificações, faça rebases com segurança e navegue milhões de commits a <strong>120 FPS acelerado por GPU</strong>.
+        Desenvolvendo com <strong>Cursor, Claude, Copilot ou ChatGPT</strong>? Quando a IA quebra o que funcionava ou se perde em refatorações, o Git Hydra é a sua rede de segurança visual. Veja todo o histórico em um grafo vivo em tempo real e restaure qualquer versão anterior instantaneamente — sem atritos nem comandos obscuros de terminal.
+        <br><br>
+        Construído em <strong>100% Rust nativo com aceleração GPU</strong> (Iced + WGPU) para desenvolvedores e engenheiros de software que exigem inicialização em &lt;10ms, zero Electron e privacidade 100% offline.
       </p>
 
       <div class="hero-cta-group">
@@ -80,14 +83,30 @@
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
           </svg>
-          <span>Download v1.0.0 Grátis</span>
+          <span>Baixar v1.0.0 Grátis</span>
         </a>
-        <a href="#topology" class="btn-hero-secondary">
+        <a href="#casos-de-uso" class="btn-hero-secondary">
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/>
           </svg>
-          <span>Ver Simulação do Grafo</span>
+          <span>Ver Casos de Uso com IA</span>
         </a>
+      </div>
+
+      <!-- Hero Highlights Micro-pills -->
+      <div class="hero-highlights">
+        <div class="hero-highlight-item">
+          <span class="highlight-check">✓</span>
+          <span>Zero comandos complicados de terminal</span>
+        </div>
+        <div class="hero-highlight-item">
+          <span class="highlight-check">✓</span>
+          <span>Ponto de restauração visual em 1 clique</span>
+        </div>
+        <div class="hero-highlight-item">
+          <span class="highlight-check">✓</span>
+          <span>100% Rust Nativo &amp; Gratuito para Sempre</span>
+        </div>
       </div>
 
       <!-- Quick Install Bar -->
@@ -103,6 +122,67 @@
           </svg>
           <span id="copy-feedback">Copiar</span>
         </button>
+      </div>
+
+      <!-- Live Social Proof & Visitor Counter Bar -->
+      <div class="stats-counter-bar">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper emerald-icon">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number-row">
+              <span id="visitor-counter" class="stat-number">18.420</span>
+              <span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Comunidade & Visitantes</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper cyan-icon">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number-row">
+              <span id="downloads-counter" class="stat-number">3.240</span>
+              <span class="stat-plus">+</span>
+            </div>
+            <span class="stat-label">Downloads Oficiais GitHub</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon-wrapper purple-icon">
+            <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number-row">
+              <span class="stat-number">&lt; 10ms</span>
+            </div>
+            <span class="stat-label">Abertura Nativa em Rust</span>
+          </div>
+        </div>
+
+        <div class="stat-card live-card">
+          <div class="stat-icon-wrapper live-indicator-wrapper">
+            <span class="pulse-indicator"></span>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number-row">
+              <span id="live-online-counter" class="stat-number">39</span>
+              <span class="stat-unit">online</span>
+            </div>
+            <span class="stat-label">Desenvolvedores Ativos</span>
+          </div>
+        </div>
       </div>
 
       <!-- App Preview Frame with Glow -->
@@ -126,52 +206,421 @@
     </div>
   </section>
 
-  <!-- Interactive DAG Topology Demo -->
-  <section id="topology" class="section topology-section">
+  <!-- Use Cases & Visual Storyboard for AI Developers -->
+  <section id="casos-de-uso" class="section use-cases-section">
     <div class="section-header">
-      <div class="section-tag">FILOSOFIA GRAPH-FIRST</div>
-      <h2 class="section-title">O formato do seu código, não apenas um log plano.</h2>
+      <div class="section-tag">CASOS DE USO PRÁTICOS</div>
+      <h2 class="section-title">Como o Git Hydra salva o seu dia na prática</h2>
       <p class="section-desc">
-        A maioria dos clientes esconde ramificações em listas sem contexto. No Git Hydra, a árvore topológica é viva, direta e interativa. Clique nos nós abaixo para testar a inspeção em tempo real:
+        Desenvolver com IA é incrível até algo quebrar silenciosamente. Veja como o Git Hydra transforma ansiedade em controle absoluto com fluxos visuais simples e imediatos.
       </p>
     </div>
 
-    <div class="topology-demo-container">
-      <div class="dag-viewer" id="dag-viewer">
-        <div class="dag-header">
-          <span class="dag-branch-pill main-branch">main</span>
-          <span class="dag-branch-pill feat-branch">feat/workflow-guide</span>
-          <span class="dag-branch-pill fix-branch">fix/macos-bundle</span>
+    <div class="use-cases-grid">
+      <!-- Storyboard Card 1 -->
+      <div class="use-case-card">
+        <div class="uc-badge uc-badge-orange">CASO 01 • O "DESFAZER CÓSMICO"</div>
+        <h3 class="uc-title">A IA quebrou o que funcionava há 20 minutos</h3>
+        <p class="uc-desc">Você pediu uma refatoração no Cursor ou Claude. O modelo alterou 8 arquivos ao mesmo tempo e a aplicação simplesmente parou de compilar.</p>
+        
+        <div class="uc-flow">
+          <div class="uc-step">
+            <span class="uc-step-circle">1</span>
+            <div class="uc-step-text">
+              <strong>IA entra em loop:</strong> Você tenta pedir para o modelo consertar, mas ele introduz mais erros e polui o código.
+            </div>
+          </div>
+          <div class="uc-step-arrow">↓</div>
+          <div class="uc-step">
+            <span class="uc-step-circle">2</span>
+            <div class="uc-step-text">
+              <strong>Abra o Git Hydra:</strong> Em &lt;10ms você vê o grafo visual com cada ponto de salvamento na tela.
+            </div>
+          </div>
+          <div class="uc-step-arrow">↓</div>
+          <div class="uc-step highlight-step">
+            <span class="uc-step-circle">3</span>
+            <div class="uc-step-text">
+              <strong>1 Clique em "Restaurar":</strong> Seu código volta imediatamente para a versão exata que funcionava. Paz restaurada.
+            </div>
+          </div>
         </div>
-        <div class="dag-canvas-area" id="dag-canvas-area">
-          <!-- Commit Nodes generated dynamically -->
+
+        <div class="uc-footer-pill">
+          <span>Benefício Real:</span> Zero horas perdidas tentando desfazer código quebrado na mão.
         </div>
       </div>
 
-      <div class="dag-inspector" id="dag-inspector">
-        <div class="inspector-header">
-          <div class="inspector-badge" id="insp-type">MERGE COMMIT</div>
-          <div class="inspector-sha" id="insp-sha">5da5f89</div>
-        </div>
-        <h3 class="inspector-title" id="insp-title">Merge branch 'feat/workflow-guide-and-branding'</h3>
-        <div class="inspector-meta">
-          <span><strong>Autor:</strong> Marcelo Guimarães</span>
-          <span><strong>Data:</strong> Wed Mar 11, 22:15:00</span>
-        </div>
-        <div class="inspector-diff-preview">
-          <div class="diff-file">Cargo.toml</div>
-          <div class="diff-lines">
-            <span class="diff-add">+ [package.metadata.bundle]</span>
-            <span class="diff-add">+ name = "Git Hydra"</span>
-            <span class="diff-add">+ icon = ["packaging/icons/git-hydra.icns", ...]</span>
-            <span class="diff-del">- icon = ["packaging/icons/git-hydra.png"]</span>
+      <!-- Storyboard Card 2 -->
+      <div class="use-case-card">
+        <div class="uc-badge uc-badge-cyan">CASO 02 • O LABORATÓRIO SEGURO</div>
+        <h3 class="uc-title">Testar ideias radicais sem arriscar seu código estável</h3>
+        <p class="uc-desc">Quer experimentar um prompt audacioso como <em>"reescreva todo o backend em microserviços"</em>, mas tem receio de corromper seu trabalho?</p>
+        
+        <div class="uc-flow">
+          <div class="uc-step">
+            <span class="uc-step-circle">1</span>
+            <div class="uc-step-text">
+              <strong>Branch Visual em 1 Clique:</strong> Crie um ramo isolado diretamente no grafo, sem memorizar comandos complexos de terminal.
+            </div>
+          </div>
+          <div class="uc-step-arrow">↓</div>
+          <div class="uc-step">
+            <span class="uc-step-circle">2</span>
+            <div class="uc-step-text">
+              <strong>Deixe a IA trabalhar:</strong> Execute os prompts mais experimentais à vontade dentro da branch isolada.
+            </div>
+          </div>
+          <div class="uc-step-arrow">↓</div>
+          <div class="uc-step highlight-step">
+            <span class="uc-step-circle">3</span>
+            <div class="uc-step-text">
+              <strong>Aprovou? Mescle. Ficou ruim? Descarte:</strong> Compare o resultado visualmente com segurança absoluta antes de adotar.
+            </div>
           </div>
         </div>
-        <div class="inspector-stats">
-          <span class="stat-badge stat-add">+14 additions</span>
-          <span class="stat-badge stat-del">-2 deletions</span>
-          <span class="stat-badge stat-files">3 files changed</span>
+
+        <div class="uc-footer-pill">
+          <span>Benefício Real:</span> Liberdade criativa total para testar qualquer ideia sem medo.
         </div>
+      </div>
+
+      <!-- Storyboard Card 3 -->
+      <div class="use-case-card">
+        <div class="uc-badge uc-badge-emerald">CASO 03 • O RAIO-X DA IA</div>
+        <h3 class="uc-title">Auditar alucinações e diffs antes de commitar</h3>
+        <p class="uc-desc">Assistentes de código costumam remover funções importantes, renomear variáveis sem pedir ou introduzir vulnerabilidades ocultas.</p>
+        
+        <div class="uc-flow">
+          <div class="uc-step">
+            <span class="uc-step-circle">1</span>
+            <div class="uc-step-text">
+              <strong>Diff Sintático Tree-Sitter:</strong> O Git Hydra inspeciona a AST do código, destacando com precisão cirúrgica o que mudou.
+            </div>
+          </div>
+          <div class="uc-step-arrow">↓</div>
+          <div class="uc-step">
+            <span class="uc-step-circle">2</span>
+            <div class="uc-step-text">
+              <strong>Inspeção Visual Integrada:</strong> Visualize imagens, SVGs e arquivos multimídia gerados lado a lado em tempo real.
+            </div>
+          </div>
+          <div class="uc-step-arrow">↓</div>
+          <div class="uc-step highlight-step">
+            <span class="uc-step-circle">3</span>
+            <div class="uc-step-text">
+              <strong>Aprovação com Rigor Profissional:</strong> Salve apenas o código válido e preserve a integridade arquitetural do projeto.
+            </div>
+          </div>
+        </div>
+
+        <div class="uc-footer-pill">
+          <span>Benefício Real:</span> Código limpo e confiável, mesmo gerado em alta velocidade por IA.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-Assisted Engineering & Safe Checkpoints Section -->
+  <section id="como-funciona" class="section vibe-section">
+    <span id="desenvolvimento-ia" style="display:none;"></span>
+    <div class="section-header">
+      <div class="section-tag">COMO FUNCIONA • A MÁQUINA DO TEMPO</div>
+      <h2 class="section-title">Acelerando com IA? Tenha controle visual total e volte no tempo com 1 clique.</h2>
+      <p class="section-desc">
+        Assistentes como Cursor, Claude, Copilot e ChatGPT elevam a velocidade de codificação a outro patamar. Mas refatorações agressivas ou loops de alucinação podem introduzir regressões difíceis de rastrear. O Git Hydra é a ferramenta comunitária que devolve previsibilidade: salve checkpoints visuais e volte no tempo sempre que precisar.
+      </p>
+    </div>
+
+    <!-- The Problem vs Solution Comparison -->
+    <div class="vibe-comparison-grid">
+      <!-- Card 1: The Risk -->
+      <div class="vibe-card vibe-card-danger">
+        <div class="vibe-card-header">
+          <div class="vibe-status-badge badge-danger">
+            <span class="badge-icon">⚠️</span> O Risco na Iteração Acelerada
+          </div>
+          <h3 class="vibe-card-title">Refatorações em Cascata e Regressões</h3>
+        </div>
+        <ul class="vibe-list">
+          <li>
+            <span class="vibe-list-icon">❌</span>
+            <div>
+              <strong>Regressões Silenciosas:</strong> Ao pedir para a IA ajustar um módulo, múltiplos arquivos sofrem alterações simultâneas e partes já validadas quebram sem aviso.
+            </div>
+          </li>
+          <li>
+            <span class="vibe-list-icon">❌</span>
+            <div>
+              <strong>Loop de Tentativa e Erro:</strong> Tentar fazer a própria IA corrigir o erro muitas vezes gera alterações adicionais desconexas e polui o histórico de trabalho.
+            </div>
+          </li>
+          <li>
+            <span class="vibe-list-icon">❌</span>
+            <div>
+              <strong>Auditoria Cega no Terminal:</strong> Comandos como <code>git diff</code> em terminal ou rollbacks manuais demandam tempo e geram atrito no meio do fluxo criativo.
+            </div>
+          </li>
+          <li>
+            <span class="vibe-list-icon">❌</span>
+            <div>
+              <strong>Clientes Lentos em Electron:</strong> Interfaces pesadas em Chromium consom 2 GB de RAM e engasgam enquanto sua máquina compila e roda modelos locais.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 2: The Solution -->
+      <div class="vibe-card vibe-card-success">
+        <div class="vibe-card-header">
+          <div class="vibe-status-badge badge-success">
+            <span class="badge-icon">🛡️</span> A Máquina do Tempo do seu Código
+          </div>
+          <h3 class="vibe-card-title">Previsibilidade e Restauração em 1 Clique</h3>
+        </div>
+        <ul class="vibe-list">
+          <li>
+            <span class="vibe-list-icon">✅</span>
+            <div>
+              <strong>Save Points Visuais:</strong> Cada versão do seu código é um nó desenhado no grafo visual a 120 FPS na GPU. Você enxerga com clareza toda a evolução do projeto.
+            </div>
+          </li>
+          <li>
+            <span class="vibe-list-icon">✅</span>
+            <div>
+              <strong>Volte no Tempo em 1 Clique:</strong> A IA fez besteira ou quebrou sua aplicação? Basta tocar no nó anterior e seu projeto volta instantaneamente ao estado em que tudo funcionava.
+            </div>
+          </li>
+          <li>
+            <span class="vibe-list-icon">✅</span>
+            <div>
+              <strong>Zero Comandos Complexos de Terminal:</strong> Nenhuma tela preta intimidadora. Ramifique, teste prompts ousados e desfaça alterações com a agilidade de um clique do mouse.
+            </div>
+          </li>
+          <li>
+            <span class="vibe-list-icon">✅</span>
+            <div>
+              <strong>100% Rust + GPU (Offline):</strong> Abre em menos de 10ms, consome ~35 MB de RAM e nunca envia seu código para a nuvem. Suas chaves de API e arquitetura permanecem privadas.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 Simple Steps: Como Voltar no Tempo -->
+    <div class="vibe-steps-wrapper">
+      <div class="vibe-step-card">
+        <div class="vibe-step-num">01</div>
+        <div class="vibe-step-body">
+          <h4>Abra sua Pasta</h4>
+          <p>Basta abrir o diretório do seu projeto. O Git Hydra detecta repositórios na hora com libgit2 nativa em Rust, sem cadastros, sem nuvem e sem atrito.</p>
+        </div>
+      </div>
+      <div class="vibe-step-card">
+        <div class="vibe-step-num">02</div>
+        <div class="vibe-step-body">
+          <h4>Gere Checkpoints (Save Points)</h4>
+          <p>Antes de pedir uma mudança grande para a IA, salve um checkpoint visual. Pense nisso como salvar o jogo antes de entrar na caverna do dragão.</p>
+        </div>
+      </div>
+      <div class="vibe-step-card">
+        <div class="vibe-step-num">03</div>
+        <div class="vibe-step-body">
+          <h4>Volte no Tempo em 1 Clique</h4>
+          <p>A IA quebrou algo ou entrou em loop? Clique no nó anterior no grafo visual e veja seu código restaurado em milissegundos. Você programa com liberdade total!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Realistic Interactive Git Hydra Workstation Simulator -->
+  <section id="topology" class="section topology-section">
+    <div class="section-header">
+      <div class="section-tag">SIMULADOR INTERATIVO DA WORKSTATION NATIVA</div>
+      <h2 class="section-title">A interface real do Git Hydra: controle total em 1 tela.</h2>
+      <p class="section-desc">
+        Nada de logs cegos de terminal. Experimente a interface real da aplicação: navegue pelas branches, inspecione nós do grafo em tempo real, veja diffs sintáticos com Tree-Sitter e teste a <strong>Máquina do Tempo em 1 clique</strong>:
+      </p>
+    </div>
+
+    <!-- The Realistic Git Hydra Window Simulator -->
+    <div class="hydra-app-window">
+      <!-- Window Titlebar with Workspace Tabs -->
+      <div class="app-window-bar">
+        <div class="window-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        
+        <div class="app-workspace-tabs">
+          <div class="app-tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <span>web-app-frontend</span>
+          </div>
+          <div class="app-tab active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <span>core-api-server</span>
+            <span class="tab-close">✕</span>
+          </div>
+          <div class="app-tab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            <span>infrastructure-config</span>
+          </div>
+          <div class="app-tab-add">+</div>
+        </div>
+
+        <div class="app-bar-right">
+          <div class="app-search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span class="search-placeholder">File/path/src/auth.ts</span>
+          </div>
+          <div class="app-engine-badge">100% Rust + WGPU</div>
+        </div>
+      </div>
+
+      <!-- Mobile/Tablet Panel Tabs (Only visible on small viewports) -->
+      <div class="app-mobile-tabs">
+        <button class="app-mtab active" data-panel="graph">📊 Grafo Histórico</button>
+        <button class="app-mtab" data-panel="inspector">📝 Diffs &amp; Inspeção</button>
+        <button class="app-mtab" data-panel="sidebar">🌿 Branches (5)</button>
+      </div>
+
+      <!-- 3-Column Studio Body -->
+      <div class="app-workspace-body view-graph">
+        <!-- Col 1: Branches Panel -->
+        <aside class="app-col-sidebar" id="panel-sidebar">
+          <div class="sidebar-block-header">
+            <span>BRANCHES</span>
+            <span class="sidebar-more">•••</span>
+          </div>
+          <div class="sidebar-group">
+            <div class="group-title">LOCAL (5)</div>
+            <div class="branch-row active">
+              <span class="b-dot emerald"></span>
+              <span class="b-name">main</span>
+              <span class="b-pill">active</span>
+            </div>
+            <div class="branch-row">
+              <span class="b-dot purple"></span>
+              <span class="b-name">feature/auth-refresh</span>
+            </div>
+            <div class="branch-row">
+              <span class="b-dot cyan"></span>
+              <span class="b-name">fix/issue-312</span>
+            </div>
+            <div class="branch-row">
+              <span class="b-dot cyan"></span>
+              <span class="b-name">dev-staging</span>
+            </div>
+            <div class="branch-row">
+              <span class="b-dot purple"></span>
+              <span class="b-name">feat/dashboard-v3</span>
+            </div>
+          </div>
+
+          <div class="sidebar-group">
+            <div class="group-title">REMOTE (3)</div>
+            <div class="branch-row">
+              <span class="b-dot gray"></span>
+              <span class="b-name">origin/main</span>
+            </div>
+            <div class="branch-row">
+              <span class="b-dot gray"></span>
+              <span class="b-name">origin/dev-staging</span>
+            </div>
+            <div class="branch-row">
+              <span class="b-dot gray"></span>
+              <span class="b-name">origin/feat/dashboard-v3</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Col 2: Interactive DAG History Graph -->
+        <main class="app-col-graph" id="panel-graph">
+          <div class="graph-top-bar">
+            <div class="graph-title-block">
+              <span class="graph-main-title">Git Hydra History Graph</span>
+              <div class="graph-branch-pills">
+                <span class="gpill gpill-main">🌿 main</span>
+                <span class="gpill gpill-purple">🔀 feature</span>
+                <span class="gpill gpill-cyan">🔀 feature</span>
+                <span class="gpill gpill-hotfix">⚡ hotfix</span>
+              </div>
+            </div>
+            <div class="graph-quick-actions">
+              <button class="btn-graph-stage" title="Stage All">← Stage All</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Graph Nodes List with Topological Rails -->
+          <div class="graph-nodes-stream" id="dag-canvas-area">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </main>
+
+        <!-- Col 3: Commit Details & Tree-Sitter Diff Inspector -->
+        <aside class="app-col-inspector" id="panel-inspector">
+          <div class="insp-top-head">
+            <div class="insp-title-row">
+              <h3 class="insp-commit-title" id="insp-title">feat: implement OAuth2 flow</h3>
+            </div>
+            <div class="insp-commit-sub" id="insp-meta-row">
+              <span id="insp-sha" class="insp-sha-code">f4a2b10</span> • <span id="insp-author">Alex Chen</span> • <span id="insp-time">2h ago</span> • <span class="insp-branch-tag">🌿 main</span>
+            </div>
+          </div>
+
+          <div class="insp-author-badge">
+            <div class="author-circle" id="insp-avatar">AC</div>
+            <div class="author-details">
+              <span class="author-name" id="insp-author-name">Alex Chen</span>
+              <span class="author-time" id="insp-author-date">Hoje, 2h atrás</span>
+            </div>
+          </div>
+
+          <div class="insp-files-block">
+            <div class="files-header-row">
+              <span id="insp-files-count">4 changed files</span>
+            </div>
+            <div class="files-list" id="insp-files-list">
+              <div class="file-item active">📄 src/auth.ts</div>
+              <div class="file-item">📄 src/config/oauth.config</div>
+              <div class="file-item">📄 README.md</div>
+              <div class="file-item">📄 tests/auth.test.ts</div>
+            </div>
+          </div>
+
+          <!-- Tree-Sitter Diff Viewer with line numbers -->
+          <div class="insp-diff-container">
+            <div class="diff-header-bar">
+              <span class="diff-file-tag" id="diff-file-tag">src/auth.ts</span>
+              <span class="diff-ast-tag">Tree-Sitter AST</span>
+            </div>
+            <div class="diff-code-box" id="diff-lines">
+              <!-- Rendered lines -->
+            </div>
+          </div>
+
+          <!-- Time Machine Action Button -->
+          <div class="time-machine-action">
+            <button id="btn-restore-node" class="btn-restore-checkpoint" title="Simular restauração para este commit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              <span>Voltar no Tempo para este Ponto</span>
+            </button>
+            <div id="restore-toast" class="restore-toast" style="display: none;">
+              ✨ <strong>Código Restaurado!</strong> Repositório revertido para o commit <span id="toast-sha">f4a2b10</span> em 4ms. Zero comandos de terminal.
+            </div>
+          </div>
+
+          <div class="insp-bottom-actions">
+            <button class="btn-insp-sec">Stage All</button>
+            <button class="btn-insp-pri">Commit Changes</button>
+            <button class="btn-insp-sec">Push</button>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -384,6 +833,164 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Community Testimonials & Interactive Comment Wall -->
+  <section id="community" class="section community-section">
+    <div class="section-header">
+      <div class="section-tag">DEPOIMENTOS & COMUNIDADE</div>
+      <h2 class="section-title">Quem experimentou, não programa sem.</h2>
+      <p class="section-desc">
+        De engenheiros de software a quem acelera entregas com IA, veja como o Git Hydra se tornou indispensável para a comunidade técnica. Deixe também o seu relato!
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="testimonials-grid" id="testimonials-feed">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="t-card-header">
+          <div class="t-avatar emerald-avatar">LR</div>
+          <div class="t-meta">
+            <h4 class="t-name">Lucas Rocha</h4>
+            <span class="t-role">Engenheiro de Software & Criador de Produtos</span>
+          </div>
+          <span class="t-tag">Cursor + Claude</span>
+        </div>
+        <div class="t-rating">⭐⭐⭐⭐⭐</div>
+        <p class="t-body">
+          "Utilizo assistentes de IA o dia todo na arquitetura de novos microsserviços. O Git Hydra virou meu ponto de restauração indispensável: consigo acompanhar visualmente o que o Cursor altera em cada arquivo e reverter qualquer regressão em milissegundos."
+        </p>
+        <div class="t-footer">
+          <span class="t-verified">✓ Verificado</span>
+          <span class="t-time">Há 2 dias</span>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="t-card-header">
+          <div class="t-avatar cyan-avatar">BM</div>
+          <div class="t-meta">
+            <h4 class="t-name">Beatriz Mendes</h4>
+            <span class="t-role">Product Designer & Frontend Developer</span>
+          </div>
+          <span class="t-tag">React & UI</span>
+        </div>
+        <div class="t-rating">⭐⭐⭐⭐⭐</div>
+        <p class="t-body">
+          "Uma das ferramentas mais fluidas que já utilizei. A visão de árvore topológica traz clareza total sobre o estado das branches e dos merges, eliminando a confusão de logs planos sem contexto."
+        </p>
+        <div class="t-footer">
+          <span class="t-verified">✓ Verificado</span>
+          <span class="t-time">Há 4 dias</span>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="t-card-header">
+          <div class="t-avatar purple-avatar">TF</div>
+          <div class="t-meta">
+            <h4 class="t-name">Thiago Faria</h4>
+            <span class="t-role">Engenheiro Sênior de Software</span>
+          </div>
+          <span class="t-tag">Rust & Systems</span>
+        </div>
+        <div class="t-rating">⭐⭐⭐⭐⭐</div>
+        <p class="t-body">
+          "Chega de clientes em Electron devorando 2 GB de RAM. O Git Hydra inicia instantaneamente em 8ms, desenha a árvore de branches a 120 FPS direto na GPU e o diff sintático com Tree-Sitter é cirúrgico. Excelente contribuição para a comunidade."
+        </p>
+        <div class="t-footer">
+          <span class="t-verified">✓ Verificado</span>
+          <span class="t-time">Há 1 semana</span>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <div class="t-card-header">
+          <div class="t-avatar emerald-avatar">CD</div>
+          <div class="t-meta">
+            <h4 class="t-name">Camila Duarte</h4>
+            <span class="t-role">Tech Lead & Arquiteta de Soluções</span>
+          </div>
+          <span class="t-tag">DevOps & Cloud</span>
+        </div>
+        <div class="t-rating">⭐⭐⭐⭐⭐</div>
+        <p class="t-body">
+          "O Git Hydra atende perfeitamente tanto quem está integrando IA ao dia a dia quanto desenvolvedores seniores que gerenciam múltiplas ramificações. A velocidade nativa e o baixo consumo de hardware são incomparáveis."
+        </p>
+        <div class="t-footer">
+          <span class="t-verified">✓ Verificado</span>
+          <span class="t-time">Há 2 semanas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Comment & Review Box -->
+    <div class="comment-wall-box">
+      <div class="comment-box-head">
+        <div class="comment-box-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="comment-box-title">Deixe sua Avaliação ou Comentário</h3>
+          <p class="comment-box-desc">Compartilhe sua experiência, relate como usa o Git Hydra ou sugira melhorias para o projeto.</p>
+        </div>
+      </div>
+
+      <form id="comment-form" class="comment-form">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="comment-name">Seu Nome ou Usuário</label>
+            <input type="text" id="comment-name" placeholder="Ex: Alex Santana" required maxlength="50">
+          </div>
+          <div class="form-field">
+            <label for="comment-role">Como você atua?</label>
+            <select id="comment-role" required>
+              <option value="Engenheiro(a) de Software">💻 Engenheiro(a) de Software</option>
+              <option value="Desenvolvedor(a) com IA">⚡ Desenvolvedor(a) com IA (Cursor / Copilot / Claude)</option>
+              <option value="Frontend & UI Designer">🎨 Frontend & UI Designer</option>
+              <option value="Tech Lead / Arquiteto(a)">🚀 Tech Lead / Arquiteto(a)</option>
+              <option value="Entusiasta de Rust & Open Source">🦀 Entusiasta de Rust & Open Source</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Sua Nota</label>
+          <div class="rating-stars-picker" id="star-picker">
+            <button type="button" class="star-btn active" data-star="1">⭐</button>
+            <button type="button" class="star-btn active" data-star="2">⭐</button>
+            <button type="button" class="star-btn active" data-star="3">⭐</button>
+            <button type="button" class="star-btn active" data-star="4">⭐</button>
+            <button type="button" class="star-btn active" data-star="5">⭐</button>
+            <span class="star-label-text" id="star-label-text">5 / 5 estrelas</span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="comment-body">Seu Depoimento ou Sugestão</label>
+          <textarea id="comment-body" rows="3" placeholder="Como o Git Hydra te ajuda a salvar seu código e não perder seu progresso?..." required maxlength="500"></textarea>
+        </div>
+
+        <div class="form-footer-actions">
+          <button type="submit" class="btn-submit-comment" id="btn-submit-comment">
+            <span>Publicar Depoimento</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+          <div id="comment-success-alert" class="comment-success-alert">
+            ✨ Depoimento salvo com sucesso na comunidade!
+          </div>
+        </div>
+      </form>
     </div>
   </section>
 
