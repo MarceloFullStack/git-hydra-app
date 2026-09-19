@@ -238,16 +238,16 @@ const commitsData = [
     ]
   },
   {
-    sha: '1508b5c',
+    sha: '7270e2d',
     badge: 'A6',
     type: 'STABLE RELEASE',
     branch: 'main',
     color: 'emerald',
-    title: 'v1.0.0 Community Edition Stable Checkpoint',
+    title: 'v1.0.1 Community Edition Stable Checkpoint',
     author: 'Marcelo Guimarães',
-    date: '1d ago',
-    branchRef: 'main (v1.0.0)',
-    filesCount: '45 files changed',
+    date: 'just now',
+    branchRef: 'main (v1.0.1)',
+    filesCount: '48 files changed',
     files: [
       { name: 'Cargo.toml', active: true },
       { name: 'src/main.rs', active: false }
@@ -256,7 +256,7 @@ const commitsData = [
     diff: [
       { num: 1, type: 'add', text: '  + [package]' },
       { num: 2, type: 'add', text: '  + name = "git-hydra"' },
-      { num: 3, type: 'add', text: '  + version = "1.0.0"' },
+      { num: 3, type: 'add', text: '  + version = "1.0.1"' },
       { num: 4, type: 'add', text: '  + edition = "2024"' }
     ]
   }
