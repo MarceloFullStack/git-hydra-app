@@ -15,6 +15,10 @@
   <a href="#"><img src="https://img.shields.io/badge/License-Free%20Community-emerald" alt="License"></a>
 </p>
 
+<p align="center">
+  <img src="assets/claude_terminal_screenshot.png" alt="Git Hydra Interface com Claude Code e Terminal Integrados" width="100%" />
+</p>
+
 ---
 
 ## ⚡ Git Hydra Community Edition (Gratuita para Sempre)
