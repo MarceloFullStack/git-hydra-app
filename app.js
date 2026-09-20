@@ -409,10 +409,92 @@ function initTopologySimulator() {
   const appTabs = document.querySelectorAll('.app-tab');
   appTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      appTabs.forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
     });
   });
+
+  // Simulator: Iniciar Projeto do Zero (git init)
+  function showSimulatorToast(message) {
+    let toast = document.getElementById('sim-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'sim-toast';
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: rgba(8, 20, 36, 0.96);
+        border: 1px solid #00f0ff;
+        color: #ffffff;
+        padding: 14px 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px rgba(0, 240, 255, 0.35);
+        font-size: 0.9rem;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        backdrop-filter: blur(10px);
+      `;
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<span>🚀</span> <strong>Git Hydra:</strong> ${message}`;
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateY(0)';
+    clearTimeout(window.__simToastTimeout);
+    window.__simToastTimeout = setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+    }, 4500);
+  }
+
+  const handleNewProjectSim = () => {
+    let newTab = document.getElementById('sim-new-tab');
+    if (!newTab) {
+      newTab = document.createElement('div');
+      newTab.id = 'sim-new-tab';
+      newTab.className = 'app-tab active';
+      newTab.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+        <span>✨ meu-novo-projeto</span>
+        <span class="tab-close">✕</span>
+      `;
+      const tabsContainer = document.querySelector('.app-workspace-tabs');
+      const addBtn = document.querySelector('.app-tab-add');
+      if (tabsContainer && addBtn) {
+        tabsContainer.insertBefore(newTab, addBtn);
+      }
+      newTab.addEventListener('click', () => {
+        document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
+        newTab.classList.add('active');
+      });
+      const closeBtn = newTab.querySelector('.tab-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          newTab.remove();
+          const firstTab = document.querySelector('.app-tab');
+          if (firstTab) firstTab.classList.add('active');
+        });
+      }
+    }
+
+    document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
+    newTab.classList.add('active');
+
+    showSimulatorToast("✨ Repositório Git inicializado do zero (git init) em 'meu-novo-projeto'! Workspace 100% pronto para codificar com IA.");
+  };
+
+  const simTabAdd = document.getElementById('sim-tab-add');
+  if (simTabAdd) {
+    simTabAdd.addEventListener('click', handleNewProjectSim);
+  }
+  const simBtnNewProject = document.getElementById('sim-btn-new-project');
+  if (simBtnNewProject) {
+    simBtnNewProject.addEventListener('click', handleNewProjectSim);
+  }
 
   // Branch row clicks in sidebar
   const branchRows = document.querySelectorAll('.branch-row');
