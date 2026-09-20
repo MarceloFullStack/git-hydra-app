@@ -70,6 +70,20 @@ Pacotes binários nativos disponíveis na [Página de Releases](https://github.c
 
 ---
 
+## ☕ Apoie o Projeto — Incentivo aos Finais de Semana
+
+O **Git Hydra** é um projeto independente de código aberto, 100% gratuito para sempre, desenvolvido com paixão e dedicação por **Marcelo Guimarães** aos **finais de semana**.
+
+A ideia central desta chave Pix é servir como um **apoio e incentivo voluntário** de quem usa e gosta da ferramenta, ajudando a manter o café quente ☕ e a motivação em alta para continuar dedicando sábados e domingos a construir novidades, suporte a novos agentes de IA e otimizações de performance para toda a comunidade.
+
+Se o Git Hydra te ajudou a salvar seu código, evitar retrabalho ou acelerar seu fluxo de trabalho:
+
+* ☕ **Chave Pix (E-mail):** `fotofacil20@gmail.com`
+* 👤 **Favorecido:** Marcelo Guimarães (Autor & Criador do Projeto)
+* 💡 **Finalidade:** Apoio e incentivo voluntário ao desenvolvimento contínuo aos finais de semana
+
+---
+
 ## 👤 Autor
 
 **Marcelo (Programador) Guimarães**  
@@ -77,3 +91,4 @@ Pacotes binários nativos disponíveis na [Página de Releases](https://github.c
 Sênior Full Stack. ADS, Gestão Comercial e Pós em Inteligência Artificial / Machine Learning.
 
 © 2026 Marcelo Guimarães. Git Hydra Community Edition.
+
