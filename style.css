@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Git Hydra — Disruptive Static Site Styling
+   Git Hydra â Disruptive Static Site Styling
    ========================================================================== */
 
 :root {
@@ -2444,8 +2444,9 @@ body.no-scroll {
   }
 }
 
-/* Tablets & Small Desktops (<= 1040px) */
-@media (max-width: 1040px) {
+/* Header drawer menu (<= 1280px): the header also holds the language switch
+   and "♥ Apoie", so the links fold into the menu earlier than the content. */
+@media (max-width: 1280px) {
   .btn-menu-toggle {
     display: flex;
   }
@@ -2493,6 +2494,10 @@ body.no-scroll {
     color: var(--emerald-400);
   }
 
+}
+
+/* Tablets & Small Desktops (<= 1040px) */
+@media (max-width: 1040px) {
   .use-cases-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -3153,5 +3158,137 @@ body.no-scroll {
 
   .download-tabs {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Language switch (PT / EN / ä¸­æ) â i18n.js marks the active button with .on */
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-switch button {
+  background: transparent;
+  border: 0;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.4rem 0.55rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.lang-switch button + button {
+  border-left: 1px solid var(--border-subtle);
+}
+
+.lang-switch button:hover {
+  color: var(--text-main);
+}
+
+.lang-switch button.on {
+  background: rgba(16, 185, 129, 0.18);
+  color: var(--emerald-400);
+}
+
+
+/* "â¥ Apoie" in the header: same shape as the GitHub button, goes to #apoie */
+.btn-support {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--text-main);
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.btn-support:hover {
+  background: rgba(244, 63, 94, 0.16);
+  border-color: rgba(244, 63, 94, 0.6);
+}
+
+.btn-support .support-heart {
+  color: #f43f5e;
+}
+
+@media (max-width: 640px) {
+  .btn-support {
+    padding: 0.5rem 0.65rem;
+  }
+
+  .btn-support-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* The header also holds the language switch and "â¥ Apoie": the GitHub button
+   shows only its icon, and on phones the least needed buttons step aside. */
+.btn-gh-text {
+  display: none;
+}
+
+.btn-github {
+  padding: 0.5rem 0.65rem;
+}
+
+/* Phones: compact language switch, GitHub button folds away first, then the
+   version tag, then the header download button (the hero keeps its own). */
+@media (max-width: 760px) {
+  .btn-github {
+    display: none;
+  }
+
+  .lang-switch button {
+    padding: 0.35rem 0.4rem;
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .brand-tag {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .nav-actions .btn-primary {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-actions {
+    gap: 0.35rem;
+  }
+
+  .lang-switch button {
+    padding: 0.3rem 0.3rem;
+  }
+
+  .brand {
+    gap: 0.45rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .brand-name {
+    font-size: 0.92rem;
   }
 }

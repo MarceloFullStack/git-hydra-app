@@ -2,6 +2,14 @@
 // Git Hydra — Interactive Static Page Engine
 // ==========================================================================
 
+// Text that app.js writes at runtime goes through i18n.js (window.t). The
+// Portuguese fallback keeps the page working if i18n.js fails to load.
+function tx(key, pt, vars) {
+  if (typeof window.t === 'function') return window.t(key, vars);
+  return Object.entries(vars || {}).reduce((s, [k, v]) => s.replace(`{${k}}`, v), pt);
+}
+const numberLocale = () => window.siteNumberLocale || 'pt-BR';
+
 document.addEventListener('DOMContentLoaded', () => {
   initParticleCanvas();
   initCopyButton();
@@ -97,11 +105,11 @@ function initCopyButton() {
   copyBtn.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(copyText.innerText);
-      copyFeedback.innerText = 'Copiado!';
+      copyFeedback.innerText = tx('copied', 'Copiado!');
       copyBtn.style.borderColor = '#10b981';
       copyBtn.style.color = '#34d399';
       setTimeout(() => {
-        copyFeedback.innerText = 'Copiar';
+        copyFeedback.innerText = tx('copy', 'Copiar');
         copyBtn.style.borderColor = '';
         copyBtn.style.color = '';
       }, 2000);
@@ -292,7 +300,7 @@ function initTopologySimulator() {
     if (inspAuthor) inspAuthor.innerText = commit.author;
     if (inspTime) inspTime.innerText = commit.date;
     if (inspAuthorName) inspAuthorName.innerText = commit.author;
-    if (inspAuthorDate) inspAuthorDate.innerText = `Hoje, ${commit.date}`;
+    if (inspAuthorDate) inspAuthorDate.innerText = tx('today', 'Hoje, {d}', { d: commit.date });
     if (inspAvatar) {
       const initials = commit.author.split(' ').map(n => n[0]).join('').slice(0, 2);
       inspAvatar.innerText = initials;
@@ -360,7 +368,7 @@ function initTopologySimulator() {
           <polyline points="1 4 1 10 7 10"></polyline>
           <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
         </svg>
-        <span>Restaurando Estado...</span>
+        <span>${tx('restoring', 'Restaurando Estado...')}</span>
       `;
 
       setTimeout(() => {
@@ -370,7 +378,7 @@ function initTopologySimulator() {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          <span>Ponto Restaurado com Sucesso!</span>
+          <span>${tx('restored', 'Ponto Restaurado com Sucesso!')}</span>
         `;
         restoreBtn.style.borderColor = '#10b981';
         restoreBtn.style.color = '#34d399';
@@ -381,7 +389,7 @@ function initTopologySimulator() {
               <polyline points="1 4 1 10 7 10"></polyline>
               <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
             </svg>
-            <span>Voltar no Tempo para este Ponto</span>
+            <span>${tx('restore_btn', 'Voltar no Tempo para este Ponto')}</span>
           `;
           restoreBtn.style.borderColor = '';
           restoreBtn.style.color = '';
@@ -458,7 +466,7 @@ function initTopologySimulator() {
       newTab.className = 'app-tab active';
       newTab.innerHTML = `
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="tab-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-        <span>✨ meu-novo-projeto</span>
+        <span>✨ ${tx('new_project', 'meu-novo-projeto')}</span>
         <span class="tab-close">✕</span>
       `;
       const tabsContainer = document.querySelector('.app-workspace-tabs');
@@ -484,7 +492,7 @@ function initTopologySimulator() {
     document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
     newTab.classList.add('active');
 
-    showSimulatorToast("✨ Repositório Git inicializado do zero (git init) em 'meu-novo-projeto'! Workspace 100% pronto para codificar com IA.");
+    showSimulatorToast(tx('sim_init', "✨ Repositório Git inicializado do zero (git init) em 'meu-novo-projeto'! Workspace 100% pronto para codificar com IA."));
   };
 
   const simTabAdd = document.getElementById('sim-tab-add');
@@ -603,7 +611,7 @@ function initMobileMenu() {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1040 && siteHeader.classList.contains('mobile-nav-open')) {
+    if (window.innerWidth > 1280 && siteHeader.classList.contains('mobile-nav-open')) {
       toggleMenu(true);
     }
   });
@@ -637,11 +645,11 @@ function initVisitorCounter() {
       const progress = Math.min(elapsed / duration, 1);
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = Math.floor(start + (end - start) * ease);
-      el.innerText = formatPt ? current.toLocaleString('pt-BR') : current;
+      el.innerText = formatPt ? current.toLocaleString(numberLocale()) : current;
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        el.innerText = formatPt ? end.toLocaleString('pt-BR') : end;
+        el.innerText = formatPt ? end.toLocaleString(numberLocale()) : end;
       }
     }
     requestAnimationFrame(update);
@@ -667,7 +675,7 @@ function initVisitorCounter() {
         });
         if (realDownloads > 0 && downloadsEl) {
           const displayDownloads = Math.max(BASE_DOWNLOADS, BASE_DOWNLOADS + realDownloads);
-          downloadsEl.innerText = displayDownloads.toLocaleString('pt-BR');
+          downloadsEl.innerText = displayDownloads.toLocaleString(numberLocale());
         }
       }
     })
@@ -692,7 +700,7 @@ function initVisitorCounter() {
       localStorage.setItem('git_hydra_user_dl', dlCount);
       if (downloadsEl) {
         let cur = parseInt(downloadsEl.innerText.replace(/\D/g, ''), 10) || BASE_DOWNLOADS;
-        downloadsEl.innerText = (cur + 1).toLocaleString('pt-BR');
+        downloadsEl.innerText = (cur + 1).toLocaleString(numberLocale());
       }
     });
   });
@@ -741,7 +749,7 @@ function initCommentWall() {
         }
       });
       if (starLabel) {
-        starLabel.innerText = `${rating} / 5 estrelas`;
+        starLabel.innerText = tx('stars', '{n} / 5 estrelas', { n: rating });
       }
     }
   }
@@ -772,7 +780,7 @@ function initCommentWall() {
       role: escapeHtml(role),
       rating: currentRating,
       body: escapeHtml(body),
-      time: 'Agora mesmo'
+      time: tx('just_now', 'Agora mesmo')
     };
 
     renderCommentCard(newComment, true);
@@ -787,7 +795,7 @@ function initCommentWall() {
     nameInput.value = '';
     bodyInput.value = '';
     currentRating = 5;
-    if (starLabel) starLabel.innerText = '5 / 5 estrelas';
+    if (starLabel) starLabel.innerText = tx('stars', '{n} / 5 estrelas', { n: 5 });
     starBtns.forEach(b => b.classList.add('active'));
 
     if (successAlert) {
@@ -812,13 +820,13 @@ function initCommentWall() {
           <h4 class="t-name">${c.name}</h4>
           <span class="t-role">${c.role}</span>
         </div>
-        <span class="t-tag t-community-tag">Novo Depoimento</span>
+        <span class="t-tag t-community-tag">${tx('new_testimonial', 'Novo Depoimento')}</span>
       </div>
       <div class="t-rating">${starsStr}</div>
       <p class="t-body">"${c.body}"</p>
       <div class="t-footer">
-        <span class="t-verified">✨ Comentário Real</span>
-        <span class="t-time">${c.time || 'Recente'}</span>
+        <span class="t-verified">${tx('real_comment', '✨ Comentário Real')}</span>
+        <span class="t-time">${c.time || tx('recent', 'Recente')}</span>
       </div>
     `;
 

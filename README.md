@@ -1,6 +1,10 @@
 # 🐉 Git Hydra — Community Edition
 
 <p align="center">
+  <a href="https://ko-fi.com/marcelofullstack"><img src="https://img.shields.io/badge/Ko--fi-Apoie%20o%20projeto-FF5E5B?logo=ko-fi&logoColor=white" alt="Apoie o projeto no Ko-fi"></a>
+</p>
+
+<p align="center">
   <img src="assets/git-hydra.png" alt="Git Hydra Logo" width="160" />
 </p>
 
@@ -75,13 +79,16 @@ Pacotes binários nativos disponíveis na [Página de Releases](https://github.c
 
 O **Git Hydra** é um projeto independente de código aberto, 100% gratuito para sempre, desenvolvido com paixão e dedicação por **Marcelo Guimarães** aos **finais de semana**.
 
-A ideia central desta chave Pix é servir como um **apoio e incentivo voluntário** de quem usa e gosta da ferramenta, ajudando a manter o café quente ☕ e a motivação em alta para continuar dedicando sábados e domingos a construir novidades, suporte a novos agentes de IA e otimizações de performance para toda a comunidade.
+A ideia central destes links é servir como um **apoio e incentivo voluntário** de quem usa e gosta da ferramenta, ajudando a manter o café quente ☕ e a motivação em alta para continuar dedicando sábados e domingos a construir novidades, suporte a novos agentes de IA e otimizações de performance para toda a comunidade.
 
 Se o Git Hydra te ajudou a salvar seu código, evitar retrabalho ou acelerar seu fluxo de trabalho:
 
-* ☕ **Chave Pix (E-mail):** `fotofacil20@gmail.com`
-* 👤 **Favorecido:** Marcelo Guimarães (Autor & Criador do Projeto)
-* 💡 **Finalidade:** Apoio e incentivo voluntário ao desenvolvimento contínuo aos finais de semana
+* ⭐ [Dar estrela no GitHub](https://github.com/MarceloFullStack/git-hydra-app)
+* 💜 [GitHub Sponsors](https://github.com/sponsors/MarceloFullStack)
+* ☕ [Ko-fi](https://ko-fi.com/marcelofullstack)
+* 💠 [Pix via LivePix](https://livepix.gg/marcelofullstack)
+
+O apoio é voluntário e não muda nada no app: tudo continua gratuito para todo mundo. Marcelo Guimarães, Autor & Criador do Projeto.
 
 ---
 
